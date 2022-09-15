@@ -15,14 +15,22 @@ Industri film berkembang demikian pesat. Banyak jenis film yang beredar dan siap
 ## Data Understanding
 Saya menggunakan MovieLens 20M Dataset oleh Grouplens yang memiliki lebih dari 20 juta peringkat film sejak 1995 dengan title, genre, dan rating yang diberikan oleh pengguna. Bisa di unduh di [sini](https://grouplens.org/datasets/movielens/), Hanya file movie.csv dan rating.csv yang digunakan pada proyek ini
 
-Pratinjau movie.csv
-|movieId |title |genres |
-|---	|---	|---	|
-|   	|   	|   	|
-|   	|   	|   	|
-|   	|   	|   	|
-|   	|   	|   	|
+Berikut pratinjau `movie.csv`
+|movieId |title                    |genres                                           |
+|--------|-------------------------|-------------------------------------------------|
+|1       |Toy Story (1995)         | Adventure, Animation, Children, Comedy, Fantasy |
+|2       |Jumanji (1995)           | Adventure, Children, Fantasy                    |
+|3       |Grumpier Old Men (1995)  | Comedy, Romance   	                             |
+|4       |Waiting to Exhale (1995) | Comedy, Drama, Romance  	                       |
 
+Berikut pratinjau `rating.csv`
+|userId |movieId |rating |timestamp           |
+|-------|--------|-------|--------------------|
+|1      |2       |3.5    |2005-04-02 23:53:47 |
+|1      |29      |3.5    |2005-04-02 23:31:16 |
+|1      |32      |3.5    |2005-04-02 23:33:39 |
+|1      |47      |3.5    |2005-04-02 23:32:07 |
+|1      |50      |3.5    |2005-04-02 23:29:40 |
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.

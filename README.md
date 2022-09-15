@@ -32,33 +32,51 @@ Berikut pratinjau `rating.csv`
 |1      |47      |3.5    |2005-04-02 23:32:07 |
 |1      |50      |3.5    |2005-04-02 23:29:40 |
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
-
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+Data preparation yang dilakukan pada proyek ini adalah sebagai berikut:
+- Import library yang akan digunakan
+- Membaca dataset yang kita miliki
+- Membuat kolom Tahun di movie dataframe
+- Menghapus tahun di kolom Judul.
+- Menghapus kolom genre
+- Menghapus kolom timestamp pada dataframe rating
+- Membuatan sistem rekomendasi Berbasis User:
+  - Pilih pengguna dengan film yang telah ditonton pengguna
+  - Mendapatkan rekaman film yang ditonton dari pengguna
+  - Menghitung similarity score
+  - Merekomendasikan item dengan skor tertinggi
+- Memfilter film berdasarkan judul, Kemudian gabungkan, Sehingga kita bisa mendapatkan movieId. Menghapus informasi yang tidak digunakan 
+- Memfilter pengguna yang telah menonton film yang telah ditonton oleh input dan menyimpannya
 
 ## Modeling
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
+Modeling yang dilakukan pada proyek ini adalah sebagai berikut:
+- Membuat beberapa sub dataframes di mana semuanya memiliki nilai yang sama di kolom yang ditentukan sebagai parameter
+- Menunjukkan satu contoh grup dengan mendapatkan semua pengguna userId tertentu
+- Menyortirnya sehingga pengguna dengan film yang paling mirip dengan input akan diprioritaskan
+- Menyimpan Pearson Correlation dalam dictionary, di mana keynya user Id pengguna dan value adalah coefficient
+- Menyortir input dan user group saat ini sehingga nilainya tidak tercampur nanti
+- Mendapatkan review scores untuk film
+- Menyimpan dalam variabel buffer sementara untuk memfasilitasi perhitungan di masa mendatang
+- Meletakkan ulasan grup pengguna saat ini dalam format list
+- Menghitung pearson correlation antara dua pengguna, yang disebut, x dan y
+- Mengambil weighted average dari peringkat film menggunakan Pearson Correlation sebagai bobot. 
+- Mengalikan similarity dengan user's ratings
+- Menerapkan sum ke topUsers setelah mengelompokkannya berdasarkan userId
+- Membuat empty dataframe, Terus mengambil weighted average
+- Mendapatkan 10 film teratas dengan skor rekomendasi tertinggi. Berikut adalah 10 rekomendasi teratas untuk pengguna input berdasarkan apa yang ditonton orang lain
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
-
+<p align="center">
+<img width="381" alt="chrome_UCiULMXqGR" src="https://user-images.githubusercontent.com/57633103/190485615-31d27cf4-0a91-454a-b441-1af69105084f.png">
+</p>
+  
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
+Evaluation yang dilakukan pada proyek ini adalah sebagai berikut:
+- Proyek ini menggunakan pendekatan Memory-based, yaitu menggunakan teknik statistik seperti Pearson Correlation
+- Dengan menerapkan Pearson Correlation, kita bisa mendapatkan weighted average recommendation score yang bagus yaitu 5.0, berikut hasilnya
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+<p align="center">
+<img width="358" alt="chrome_JFq4Ir1dBk" src="https://user-images.githubusercontent.com/57633103/190490989-1441896b-187f-4d46-aea7-0c5dccb0e8f2.png">
+</p>
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+## Conclusion
+Dari gambar sebelumnya, kita dapat melihat film teratas dengan skor rekomendasi tertinggi. Hal ini menunjukkan efektivitas metode Collaborative Filtering (CF) dalam merekomendasikan sesuatu, yang mana pada kasus ini merekomendasikan film.

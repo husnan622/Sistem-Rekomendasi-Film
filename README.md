@@ -23,6 +23,11 @@ Berikut pratinjau `movie.csv`
 |3       |Grumpier Old Men (1995)  | Comedy, Romance   	                             |
 |4       |Waiting to Exhale (1995) | Comedy, Drama, Romance  	                       |
 
+Penjelasan `movie.csv`
+- movieID : Sebagai ID dari film nya
+- title : Sebagai Judul dari film
+- genres : Sebagai genre dari film
+
 Berikut pratinjau `rating.csv`
 |userId |movieId |rating |timestamp           |
 |-------|--------|-------|--------------------|
@@ -31,6 +36,12 @@ Berikut pratinjau `rating.csv`
 |1      |32      |3.5    |2005-04-02 23:33:39 |
 |1      |47      |3.5    |2005-04-02 23:32:07 |
 |1      |50      |3.5    |2005-04-02 23:29:40 |
+
+Penjelasan `rating.csv`
+- userId : Sebagai ID dari pengguna
+- movieId : Sebagai ID dari film nya
+- rating : Sebagai rating dari film
+- timestamp : Sebagi tanggal dan waktu
 
 ## Data Preparation
 Data preparation yang dilakukan pada proyek ini adalah sebagai berikut:
@@ -71,12 +82,9 @@ Modeling yang dilakukan pada proyek ini adalah sebagai berikut:
   
 ## Evaluation
 Evaluation yang dilakukan pada proyek ini adalah sebagai berikut:
-- Proyek ini menggunakan pendekatan Memory-based, yaitu menggunakan teknik statistik seperti Pearson Correlation
-- Dengan menerapkan Pearson Correlation, kita bisa mendapatkan weighted average recommendation score yang bagus yaitu 5.0, berikut hasilnya
+- Metrik evaluasi yang digunakan adalah Pearson Correlation
+- Dengan menerapkan Pearson Correlation, hasil proyek berdasarkan metrik evaluasi tersebut kita bisa mendapatkan weighted average recommendation score yang bagus yaitu 5.0, berikut hasilnya
 
 <p align="center">
 <img width="358" alt="chrome_JFq4Ir1dBk" src="https://user-images.githubusercontent.com/57633103/190490989-1441896b-187f-4d46-aea7-0c5dccb0e8f2.png">
 </p>
-
-## Conclusion
-Dari gambar sebelumnya, kita dapat melihat film teratas dengan skor rekomendasi tertinggi. Hal ini menunjukkan efektivitas metode Collaborative Filtering (CF) dalam merekomendasikan sesuatu, yang mana pada kasus ini merekomendasikan film.
